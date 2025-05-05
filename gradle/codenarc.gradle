@@ -1,0 +1,23 @@
+apply plugin: 'codenarc'
+
+codenarc {
+    toolVersion = '3.6.0-groovy-4.0'
+    reportFormat = 'html'
+    ignoreFailures = true
+}
+
+codenarcMain {
+    configFile = file("${rootProject.projectDir}/tools/codenarc/rules.groovy")
+    // Required in order to get some of the 'enhanced' codenarc rules to work: https://codenarc.org/codenarc-enhanced-classpath-rules.html
+    compilationClasspath = sourceSets.main.compileClasspath + sourceSets.main.output
+}
+
+codenarcTest {
+    configFile = file("${rootProject.projectDir}/tools/codenarc/rules.groovy")
+    // Required in order to get some of the 'enhanced' codenarc rules to work: https://codenarc.org/codenarc-enhanced-classpath-rules.html
+    compilationClasspath = codenarcMain.compilationClasspath + sourceSets.test.compileClasspath + sourceSets.test.output
+}
+
+dependencies {
+    codenarc("org.codenarc:CodeNarc:${codenarc.toolVersion}")
+}

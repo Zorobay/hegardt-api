@@ -1,5 +1,6 @@
 package se.hegardt.api.controllers
 
+import groovy.transform.CompileStatic
 import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*
 import se.hegardt.api.entities.Person
 import se.hegardt.api.services.PersonService
 
+@CompileStatic
 @RestController
 @RequestMapping('/api/persons')
 class PersonController {

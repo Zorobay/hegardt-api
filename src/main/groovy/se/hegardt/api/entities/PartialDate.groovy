@@ -1,5 +1,6 @@
 package se.hegardt.api.entities
 
+import groovy.transform.CompileStatic
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -14,6 +15,7 @@ import jakarta.validation.constraints.Positive
 import java.time.DateTimeException
 import java.time.LocalDate
 
+@CompileStatic
 @Entity
 @Table(name = 'partial_dates')
 class PartialDate {
