@@ -1,0 +1,19 @@
+meta {
+  name: createPerson
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/persons
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "first_name": "Sebastian",
+    "last_name": "Hegardt",
+    "middle_names": ["Lechard"]
+  }
+}
