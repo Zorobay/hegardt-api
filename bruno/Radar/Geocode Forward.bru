@@ -1,0 +1,26 @@
+meta {
+  name: Geocode Forward
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://api.radar.io/v1/geocode/forward?query=Lund, Sweden&country
+  body: none
+  auth: apikey
+}
+
+params:query {
+  query: Lund, Sweden
+  country: 
+}
+
+headers {
+  : 
+}
+
+auth:apikey {
+  key: Authorization
+  value: {{apiKey}}
+  placement: header
+}

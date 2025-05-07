@@ -18,7 +18,7 @@ import se.hegardt.api.validators.LongTextConstraint
 class LifeEvent {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = 'life_event_id_seq')
-    @SequenceGenerator(name = 'life_event_id_seq', sequenceName = 'life_event_id_seq')
+    @SequenceGenerator(name = 'life_event_id_seq', sequenceName = 'life_event_id_seq', initialValue = 1, allocationSize = 1)
     @Id
     @Column(name = 'id')
     Long id

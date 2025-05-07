@@ -6,5 +6,6 @@ import groovy.transform.CompileStatic
 enum LocationCoordinateFetchStatus {
     AWAITING,
     FETCHED,
-    FETCH_ERROR,
+    NO_COORDINATES_FOUND,
+    ERROR,
 }

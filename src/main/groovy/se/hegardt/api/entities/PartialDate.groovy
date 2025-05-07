@@ -6,6 +6,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.PrePersist
 import jakarta.persistence.SequenceGenerator
 import jakarta.persistence.Table
 import jakarta.validation.constraints.Max
@@ -21,7 +22,7 @@ import java.time.LocalDate
 class PartialDate {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator='partial_date_id_seq')
-    @SequenceGenerator(name='partial_date_id_seq', sequenceName = 'partial_date_id_seq')
+    @SequenceGenerator(name='partial_date_id_seq', sequenceName = 'partial_date_id_seq', initialValue = 1, allocationSize = 1)
     @Id
     @Column(name = 'id')
     Long id
@@ -41,7 +42,8 @@ class PartialDate {
     @Max(31)
     Integer day
 
-    def beforeValidate() {
+    @PrePersist
+    void prePersist() {
         updateLocalDateField()
     }
 

@@ -22,7 +22,7 @@ import se.hegardt.api.enums.Sex
 class Person implements TimestampAware {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator='person_id_seq')
-    @SequenceGenerator(name='person_id_seq', sequenceName = 'person_id_seq')
+    @SequenceGenerator(name='person_id_seq', sequenceName = 'person_id_seq', initialValue = 1, allocationSize = 1)
     @Id
     @Column(name = 'id')
     Long id
@@ -44,6 +44,7 @@ class Person implements TimestampAware {
     List<String> occupations = []
     String notes
 
+    @Column(name = 'book_references')
     List<String> references = []
 
     @OneToOne
